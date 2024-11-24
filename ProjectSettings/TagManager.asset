@@ -12,6 +12,7 @@ TagManager:
   - Whale
   - FirePoint
   - ParticleSystem
+  - Helper
   layers:
   - Default
   - TransparentFX

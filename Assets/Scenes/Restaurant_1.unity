@@ -2656,7 +2656,7 @@ Transform:
   m_GameObject: {fileID: 430950839}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.25, y: -2.87, z: 0}
+  m_LocalPosition: {x: 4.321, y: -2.941, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3052,7 +3052,7 @@ Transform:
   m_GameObject: {fileID: 519662287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.0000029504295}
-  m_LocalPosition: {x: 0.07, y: 0.45, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0.695, z: 0}
   m_LocalScale: {x: 0.9718733, y: 0.35129476, z: 0.5227}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3180,7 +3180,7 @@ Transform:
   m_GameObject: {fileID: 542188956}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.65, y: -0.56, z: 0}
+  m_LocalPosition: {x: 2.76, y: -0.56, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9247,7 +9247,7 @@ Transform:
   m_GameObject: {fileID: 802748810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.82, y: -2.81, z: -5.496727}
+  m_LocalPosition: {x: 9.82, y: -2.81, z: -0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10217,7 +10217,7 @@ Transform:
   m_GameObject: {fileID: 923504693}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1, y: -2.98, z: 0}
+  m_LocalPosition: {x: 1.105, y: -2.991, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11504,6 +11504,7 @@ GameObject:
   - component: {fileID: 1236736969}
   - component: {fileID: 1236736972}
   - component: {fileID: 1236736974}
+  - component: {fileID: 1236736975}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11797,6 +11798,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0904555, y: 1.1140645}
   m_EdgeRadius: 0
+--- !u!95 &1236736975
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236736968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1239642672
 GameObject:
   m_ObjectHideFlags: 0
@@ -14287,7 +14309,7 @@ Transform:
   m_GameObject: {fileID: 1683746008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.05, y: -1.29, z: -5.496727}
+  m_LocalPosition: {x: 7.88, y: -1.79, z: -0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14305,6 +14327,7 @@ GameObject:
   - component: {fileID: 1756836889}
   - component: {fileID: 1756836888}
   - component: {fileID: 1756836890}
+  - component: {fileID: 1756836891}
   m_Layer: 0
   m_Name: Stove
   m_TagString: Geometry
@@ -14444,6 +14467,27 @@ MonoBehaviour:
   cookingTimer: 0
   cookTime: 5
   cookedMeat: 5
+--- !u!95 &1756836891
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756836886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38aeebf77b760884aa12526e48cf78f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1781643944
 GameObject:
   m_ObjectHideFlags: 0
@@ -15108,7 +15152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACAn+ugbkzagAIAADoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zmzAQ/SsenWuPcHDAvbXEcXpI4qnbyYWLLBajMUiMJGI7Gf/3rgQG4nJBvP16+3bFJxHS1MCt0mstsmeVAfk+Ie5Mvk0G4xOc2F7JrfiAq8+byGzhnJj3+c2sUIgHLsyoCqwW/Ifcl86ZIthIkStdrbI9JMpYg3DOSgNo0sq6aInQ54Sc8DVdupAznuaRO33gaUknFzxykBb04Epny2hxF9/Nu4BpMIvC+zhczBddICLBPAwXNI5W0+DOZ2kkL1lVQ+ZaGpIFcZclnoUUn8A7S2y586Oz0HFQZSlMx5jYc+0VSVhtGuwXHTLBUAFP0wlSgNgX1nUzDn7NcwO2k0ez84PQKGSblfxUrboVM4eW3zsrG1cnmMeeVZv0+T/7tCWda1U9XesG1NWwheCH3+zMmbEj+cfww1fijTyy8sB2JbwVIF/UWqtGZmi0unGhjYH5w/DZt5YUwA8D3lK9AZt6NMROdtqPbHK5+O5PSSmqXa88AttSeb39ioDG2fxCwn6BTJcCUcfir4E/bD/etM7wKLSxaOq6lI7eTjXauZKV18x109hEaQke7kjXIFlpzxtMY29HeGMblb2xPDJ3p7rine16VW5CPDz4U3pj2qhjPyxTqOMzmOK1saWQMJB2hhfUKVFSths21uQatm10zvgobN+I7OtqERrR6J5FnPH7aMcXfBqwHafLkNM449GScuJ3T0jsk5WblmgnD05NDskl7tn1VzNZa1b7bc80O67FR6VGkguZqy3XAPK1zdATB41F8F5mq0ygQFuwVkg/b/KZklLxA2Rpnyj1na5OVrN0yJKSWrwr65CUJP7fkhIH97u80fAu4OiKX5NdyOUfUEsDBBQAAAgIAACAn+ugj8gEbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgbmBuVmieXJispl5UrJpsq5hYlKygaVJsoFFSrK5pUGyUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACAn+ugbkzagAIAADoFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACAn+ugj8gEbQAAAHgAAAAJACQAAAAAAAAAAAAAAM0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAhQMAAAAA
+    dataString: UEsDBBQAAAgIAACAn+sIIWO/gwIAAEMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVEtzmzAQ/isenWsP4Ad2by1xnB6SeOp2cuEii8VoDBKjR2wn4//elQBDXC6Ib1/ffrvik3Cha2BGqo3i2bPMgHwfEXcm30a98QnO9CDFjn9A5/PGM1M4J+p9flPDJeKhC9OyAqM4+yEOpXMOELSC51JV6+wAidRGI5zTUgOalDQuWiD0OSJnfI1XLuSCpyh2pw88rYLRFY8MhAHVu4aTMJ5Pl9PptI0Yh5N4tljO5tG8jRxHk2gRTsPVPFqPw6lPYwUraVVD5noaZFtOZgE+4bzN1n37IIG9t/7BZObIyLLkuqVOzKX20iS01hYbR4eMU5TC83XKFMAPhXFtDYNf81yDaXVS9PLAFSraZCU/ZSNzRfWx4flOS+vqhNHSs2qSPv9nHzekcyWrp65uGLgapuDs+JteGNVmMIch/PCVuBUnWh7pvoS3AsSL3ChpRYZGo6wLtRqih/7z1lpSADv2eEP1DrR1r3839m7oroer7/6clLza35RHYFdKr7ffFVA4m19I2G+SblMg6lj81fCHHoYr1xoeudIGTW2XwtHbS6ucK1l7zVw31iRSCfBwS7oGQUtz2WIacz/CO9ug7J3lkbrL1RZvbd2duQvxcO8fBHemrTzdhqULeXoGXbxaU3IBPWlneEGdEilEs2FDTbqwnVU5ZYOwg+XZ19UiQRzECxozyhbxns3ZOKR7FqxmLFhmLF4FjPjd4wL7pOW2IdrKg1MTfXKBe9b9c0YbRWu/7Zmipw3/qORAci5yuWMKQLw2GW7EQWERvJfZOuMo0A6M4cLPm3ympJTsCFl6S5T6Ttdno2jaZ0lJzd+lcUhKEv+TSYmDb7u8VfDO4eSKd8mu5PoPUEsDBBQAAAgIAACAn+ugj8gEbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgbmBuVmieXJispl5UrJpsq5hYlKygaVJsoFFSrK5pUGyUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACAn+sIIWO/gwIAAEMFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACAn+ugj8gEbQAAAHgAAAAJACQAAAAAAAAAAAAAANACAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAiAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -15136,7 +15180,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -15283,7 +15359,7 @@ Transform:
   m_GameObject: {fileID: 1955889724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.0000029504295}
-  m_LocalPosition: {x: 0.08, y: -0.08, z: 0}
+  m_LocalPosition: {x: 0.08, y: -0.12, z: 0}
   m_LocalScale: {x: 0.8430195, y: 0.6771601, z: 0.45340046}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16177,7 +16253,7 @@ Transform:
   m_GameObject: {fileID: 2107660236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.41, y: -6.37, z: 0}
+  m_LocalPosition: {x: -7.41, y: -5.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16480,7 +16556,7 @@ GameObject:
   - component: {fileID: 8973419505583674145}
   m_Layer: 0
   m_Name: Helper
-  m_TagString: Sardine
+  m_TagString: Helper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16588,7 +16664,7 @@ Transform:
   m_GameObject: {fileID: 4812758557487446394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.82, y: -2.81, z: -5.496727}
+  m_LocalPosition: {x: 9.82, y: -2.81, z: -0.197}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16615,6 +16691,9 @@ MonoBehaviour:
   chute: {fileID: 1683746009}
   bodyPosition: {fileID: 0}
   enemyDead: 0
+  pathInProgress: 0
+  bodyHeld: 0
+  atChute: 0
 --- !u!1 &9125495238293838306
 GameObject:
   m_ObjectHideFlags: 0
@@ -16703,8 +16782,11 @@ MonoBehaviour:
   endPoint: {fileID: 1401117406}
   hasFood: 0
   canMove: 0
+  isMid: 0
+  pullUp: 0
   speed: 2
   startDelay: 0
+  whaleTimer: 0
   spawnInterval: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

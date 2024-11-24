@@ -13,4 +13,12 @@ public class Customer_Body : MonoBehaviour
         helper.bodyPosition = this.transform;
         helper.destinationSetter.target = this.transform;
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Helper"))
+        {
+            this.gameObject.SetActive(false);
+        }   
+    }
 }

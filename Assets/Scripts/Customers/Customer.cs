@@ -20,17 +20,17 @@ public class Customer : MonoBehaviour, IDamageable
     public Transform exit;
     private bool atTable;
     private bool dead;
-
-    private void OnEnable()
+    public bool spawnsSet;
+    private void Start()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
         aiPath = GetComponent<AIPath>();
         helper = FindObjectOfType<Helper>();
         seats = GameObject.Find("Seats").transform;
         exit = GameObject.Find("Exit").transform;
-        Spawn();
+        spawnsSet = false;
         SetDestinations(seats, "CustomerLocation", tables_list);
-
+        Spawn();
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Customer : MonoBehaviour, IDamageable
         {
             return;
         }
-        else if (!atTable)
+        else if (!atTable && spawnsSet)
         {
             destinationSetter.target = tableDestination;
             if(aiPath.desiredVelocity.x >= 0.01f)
@@ -59,11 +59,12 @@ public class Customer : MonoBehaviour, IDamageable
 
     private void Spawn()
     {
-        int seatTarget = Random.Range(0, (tables_list.Count + 1));
+        int seatTarget = Random.Range(0, tables_list.Count);
         for (int i = 0; i < seatTarget; i++)
         {
             tableDestination = tables_list[i].transform;
         }
+        spawnsSet = true;
     }
 
     private void SetDestinations(Transform seats, string CustomerLocation, List<GameObject> list)

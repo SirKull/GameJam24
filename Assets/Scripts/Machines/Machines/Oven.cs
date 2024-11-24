@@ -5,6 +5,7 @@ using UnityEngine;
 public class Oven : MonoBehaviour
 {
     public Player_Input playerInput;
+    public Animator animator;
 
     //checks
     public bool hasObject;
@@ -27,6 +28,7 @@ public class Oven : MonoBehaviour
         canOven = false;
         objectComplete = false;
         playerInput = FindObjectOfType<Player_Input>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class Oven : MonoBehaviour
     {
         if (hasObject && cookingTimer <= cookTime)
         {
+            animator.SetBool("isCooking", true);
             cookingTimer += Time.deltaTime;
             cooking = true;
         }
@@ -41,6 +44,8 @@ public class Oven : MonoBehaviour
         {
             cooking = false;
             objectComplete = true;
+            animator.SetBool("isCooking", false);
+            animator.SetBool("isDone", true);
         }
     }
 
@@ -50,12 +55,14 @@ public class Oven : MonoBehaviour
         {
             if (playerInput.objectValue == 3)
             {
+                animator.SetBool("isDone", false);
                 hasObject = true;
                 playerInput.holdingObject = false;
                 playerInput.CurrentItem(0);
             }
             if (objectComplete)
             {
+                animator.SetBool("isDone", false);
                 hasObject = false;
                 playerInput.canPickup = false;
                 playerInput.holdingObject = true;

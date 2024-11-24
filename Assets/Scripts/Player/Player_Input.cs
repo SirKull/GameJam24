@@ -11,6 +11,7 @@ public class Player_Input : MonoBehaviour
     public PlayerObject[] playerObjects;
     public Player_Weapon[] playerWeapons;
     public GameObject aimObject;
+    public Transform playerBody;
     public Transform firePoint;
     public Camera mainCam;
 
@@ -121,6 +122,14 @@ public class Player_Input : MonoBehaviour
                 CurrentWeapon(4);
                 holdingWeapon = true;
             }
+        }
+        if (rb.velocity.x >= 0.01f)
+        {
+            playerBody.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+        }
+        else if (rb.velocity.x <= -0.1f)
+        {
+            playerBody.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
 
     }

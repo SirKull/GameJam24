@@ -10,10 +10,12 @@ public class Salad_Trigger : MonoBehaviour
     private void Start()
     {
         saladWeapon = FindAnyObjectByType<Wep_Salad>();
+        this.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        this.gameObject.SetActive(false);
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Flounder"))
+        if (other.gameObject.CompareTag("Shark"))
         {
             Debug.Log("Customer Hit");
             IDamageable damageable = other.transform.GetComponent<IDamageable>();

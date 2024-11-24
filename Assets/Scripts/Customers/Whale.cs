@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Whale : MonoBehaviour, IDamageable
 {
+    public LevelManager levelManager;
+
     public Transform whale;
     public Transform startPoint;
     public Transform midPoint;
@@ -18,10 +20,12 @@ public class Whale : MonoBehaviour, IDamageable
     public float startDelay;
     public float whaleTimer;
     public float spawnInterval;
+    public float score = 40f;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         startDelay = 10f;
         whaleTimer = 0f;
         whale.position = startPoint.transform.position;
@@ -85,5 +89,6 @@ public class Whale : MonoBehaviour, IDamageable
     public void Damage()
     {
         hasFood = true;
+        levelManager.score += score;
     }
 }

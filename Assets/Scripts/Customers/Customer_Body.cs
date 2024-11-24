@@ -11,7 +11,10 @@ public class Customer_Body : MonoBehaviour
     {
         helper = FindObjectOfType<Helper>();
         helper.bodyPosition = this.transform;
-        helper.destinationSetter.target = this.transform;
+        if (!helper.pathInProgress)
+        {
+            helper.destinationSetter.target = this.transform;
+        }
         this.GetComponent<Rigidbody2D>().gravityScale = 0f;
     }
 

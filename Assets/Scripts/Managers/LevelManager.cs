@@ -14,9 +14,12 @@ public class LevelManager : MonoBehaviour
     public int amountToPool;
     public Transform spawnPosition;
 
+
+    //score values
     public float levelTimer;
     public float spawnTimer;
     public float activeCustomers;
+    public float score;
 
     //ingredients
     public int veggies;
@@ -72,6 +75,7 @@ public class LevelManager : MonoBehaviour
                 GameObject customer = GetPooledObject();
                 if (customer != null)
                 {
+                    Debug.Log("spawnenemy");
                     customer.transform.position = spawnPosition.transform.position;
                     customer.SetActive(true);
                     activeCustomers++;

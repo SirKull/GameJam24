@@ -10,6 +10,7 @@ public class Helper : MonoBehaviour
     public LevelManager levelManager;
     public AIPath aiPath;
     public HelperState status;
+    public Transform helperBody;
 
     public Transform startPosition;
     public Transform chute;
@@ -34,14 +35,14 @@ public class Helper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         RunStatus();
-        ChooseStatus();   
+        ChooseStatus();
     }
     void RunStatus()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fryer : MonoBehaviour
 {
     public Player_Input playerInput;
+    public Animator animator;
 
     //checks
     public bool hasObject;
@@ -20,6 +21,7 @@ public class Fryer : MonoBehaviour
     private void OnEnable()
     {
         Player_Input.OnInteract += MachineInteract;
+        animator = GetComponentInChildren<Animator>();
     }
     // Start is called before the first frame update
     private void Start()
@@ -35,6 +37,7 @@ public class Fryer : MonoBehaviour
     {
         if (hasObject && cookingTimer <= cookTime)
         {
+            animator.SetBool("isCooking", true);
             cookingTimer += Time.deltaTime;
             cooking = true;
         }
@@ -42,6 +45,8 @@ public class Fryer : MonoBehaviour
         {
             cooking = false;
             objectComplete = true;
+            animator.SetBool("isCooking", false);
+            animator.SetBool("isDone", true);
         }
     }
 
@@ -51,12 +56,14 @@ public class Fryer : MonoBehaviour
         {
             if (playerInput.objectValue == 2)
             {
+                animator.SetBool("isDone", false);
                 hasObject = true;
                 playerInput.holdingObject = false;
                 playerInput.CurrentItem(0);
             }
             if (objectComplete)
             {
+                animator.SetBool("isDone", false);
                 hasObject = false;
                 playerInput.canPickup = true;
                 playerInput.holdingObject = true;

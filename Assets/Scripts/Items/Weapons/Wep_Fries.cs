@@ -39,19 +39,13 @@ public class Wep_Fries : Player_Weapon
     {
         if (playerInput.holdingWeapon && isActive)
         {
-            for (int i = 0; i < pellets; i++)
-            {
-                Debug.Log("fire");
-                float bulletSpread = Random.Range(range.x, range.y);
-                firePoint.transform.eulerAngles = new Vector3(  firePoint.transform.eulerAngles.x,
-                                                                firePoint.transform.eulerAngles.y + bulletSpread,
-                                                                firePoint.transform.eulerAngles.z);
+            Debug.Log("fire");
 
-                GameObject fries = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            GameObject fries = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-                Rigidbody2D rb = fries.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.right * fryForce, ForceMode2D.Impulse);
-            }
+            Rigidbody2D rb = fries.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.right * fryForce, ForceMode2D.Impulse);
+
             DisableWep();
         }
     }

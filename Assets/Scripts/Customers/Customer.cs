@@ -6,6 +6,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour, IDamageable
 {
     public AIDestinationSetter destinationSetter;
+    public LevelManager levelManager;
     public Helper helper;
     public AIPath aiPath;
 
@@ -14,6 +15,9 @@ public class Customer : MonoBehaviour, IDamageable
     public GameObject sardineBody;
     public GameObject flounderBody;
     public int fishType;
+    public int val;
+    public float patience;
+    public float maxPatience = 100f;
 
     public Transform seats;
     public Transform tableDestination;
@@ -25,11 +29,14 @@ public class Customer : MonoBehaviour, IDamageable
     {
         tables_list = new List<GameObject>();
         destinationSetter = GetComponent<AIDestinationSetter>();
+        levelManager = FindObjectOfType<LevelManager>();
         aiPath = GetComponent<AIPath>();
         helper = FindObjectOfType<Helper>();
         seats = GameObject.Find("Seats").transform;
         exit = GameObject.Find("Exit").transform;
         spawnsSet = false;
+        patience = maxPatience;
+        val = Random.Range(0, 3);
         SetDestinations(seats, "CustomerLocation", tables_list);
         Spawn();
     }
@@ -55,6 +62,16 @@ public class Customer : MonoBehaviour, IDamageable
             {
                 atTable = true;
             }
+        }
+        if (atTable && patience > 0)
+        {
+            patience -= Time.deltaTime;
+        }
+        if (patience < 0)
+        {
+            patience = maxPatience;
+            levelManager.activeCustomers--;
+            gameObject.SetActive(false);
         }
     }
 
@@ -84,19 +101,29 @@ public class Customer : MonoBehaviour, IDamageable
     {
         dead = true;
         helper.enemyDead = true;
+        levelManager.score += patience;
+        patience = maxPatience;
 
-        if(fishType == 1)
+        if (fishType == 1)
         {
             GameObject body = Instantiate(sharkBody, transform.position, Quaternion.identity);
+            Shark_Body_Handler bodyScript = body.GetComponent<Shark_Body_Handler>();
+            bodyScript.bodyVal = val;
         }
         if(fishType == 2)
         {
             GameObject body = Instantiate(sardineBody, transform.position, Quaternion.identity);
+            Sardine_Body_Handler bodyScript = body.GetComponent<Sardine_Body_Handler>();
+            bodyScript.bodyVal = val;
         }
         if(fishType == 3)
         {
             GameObject body = Instantiate(flounderBody, transform.position, Quaternion.identity);
+            Flounder_Body_Handler bodyScript = body.GetComponent<Flounder_Body_Handler>();
+            bodyScript.bodyVal = val;
         }
+        atTable = false;
+        levelManager.activeCustomers--;
         gameObject.SetActive(false);
     }
 }

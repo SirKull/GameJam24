@@ -11,6 +11,8 @@ TagManager:
   - Flounder
   - Whale
   - FirePoint
+  - ParticleSystem
+  - Helper
   layers:
   - Default
   - TransparentFX

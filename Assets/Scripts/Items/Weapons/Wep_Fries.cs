@@ -12,8 +12,7 @@ public class Wep_Fries : Player_Weapon
     //shooting stats
     public float timeSinceLastShot;
     public int pellets;
-    Vector2 range = new Vector2(-1, 1);
-    private float addedOffset;
+    Vector2 range = new Vector2(-10, 10);
     public float fryForce;
 
     // Start is called before the first frame update
@@ -44,16 +43,8 @@ public class Wep_Fries : Player_Weapon
                 GameObject fries = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
                 Rigidbody2D rb = fries.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * fryForce, ForceMode2D.Impulse);
+                rb.AddForce(firePoint.right * fryForce, ForceMode2D.Impulse);
             }
         }
-    }
-    private Quaternion GetDirection()
-    {
-        Quaternion newRot = firePoint.rotation;
-
-        newRot = Quaternion.Euler(firePoint.transform.localEulerAngles.x, firePoint.transform.localEulerAngles.y, firePoint.transform.localEulerAngles.z + addedOffset);
-
-        return newRot;
     }
 }

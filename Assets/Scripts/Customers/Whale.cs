@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Whale : MonoBehaviour
+public class Whale : MonoBehaviour, IDamageable
 {
     public Transform whale;
     public Transform startPoint;
@@ -11,53 +11,79 @@ public class Whale : MonoBehaviour
 
     public bool hasFood;
     public bool canMove;
+    public bool isMid;
+    public bool pullUp;
 
     public float speed;
     public float startDelay;
+    public float whaleTimer;
     public float spawnInterval;
 
     // Start is called before the first frame update
     void Start()
     {
         startDelay = 10f;
+        whaleTimer = 0f;
         whale.position = startPoint.transform.position;
         hasFood = false;
+        isMid = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        startDelay -= Time.deltaTime;
-        if (hasFood)
+        if(startDelay >= 0)
+        {
+            startDelay -= Time.deltaTime;
+        }
+        if (whaleTimer >= 0)
+        {
+            whaleTimer -= Time.deltaTime;
+        }
+
+        if (startDelay <= 0 && whaleTimer <= 0)
+        {
+            if (!pullUp)
+            {
+                PullUp();
+            }
+        }
+
+        if (!hasFood && !isMid && canMove)
+        {
+            Debug.Log("MoveWhale");
+            if (Vector2.Distance(transform.position, midPoint.position) < 0.1)
+            {
+                canMove = false;
+                isMid = true;
+            }
+            whale.transform.position = Vector2.Lerp(transform.position, midPoint.position, speed * Time.deltaTime);
+        }
+        if (hasFood && isMid)
         {
             whale.transform.position = Vector2.Lerp(transform.position, endPoint.position, speed * Time.deltaTime);
             if (Vector2.Distance(transform.position, endPoint.position) < 0.1)
             {
                 whale.position = startPoint.position;
+                isMid = false;
                 hasFood = false;
+                pullUp = false;
+                whaleTimer = spawnInterval;
+
             }
-            canMove = true;
         }
-        if (startDelay <= 0)
-        {
-            PullUp();
-            startDelay = spawnInterval;
-        }
-        if (!hasFood && canMove)
-        {
-            Debug.Log("MoveWhale");
-            if (Vector2.Distance(transform.position, midPoint.position) < 0)
-            {
-                canMove = false;
-            }
-            whale.transform.position = Vector2.Lerp(transform.position, midPoint.position, speed * Time.deltaTime);
-        }
+
     }
 
     void PullUp()
     {
+        pullUp = true;
         canMove = true;
         spawnInterval = Random.Range(20f, 25f);
 
+    }
+    public void Damage()
+    {
+        hasFood = true;
     }
 }

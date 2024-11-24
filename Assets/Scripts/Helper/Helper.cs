@@ -16,9 +16,9 @@ public class Helper : MonoBehaviour
     public Transform bodyPosition;
     public bool enemyDead;
     private bool atBody;
-    private bool pathInProgress;
-    private bool bodyHeld;
-    private bool atChute;
+    public bool pathInProgress;
+    public bool bodyHeld;
+    public bool atChute;
 
     private void OnEnable()
     {
@@ -51,7 +51,7 @@ public class Helper : MonoBehaviour
                 break;
             case HelperState.findBody:
                 pathInProgress = true;
-                if (aiPath.reachedDestination)
+                if (aiPath.reachedEndOfPath)
                 {
                     enemyDead = false;
                     bodyHeld = true;
@@ -59,7 +59,7 @@ public class Helper : MonoBehaviour
                 break;
             case HelperState.findChute:
                 destinationSetter.target = chute;
-                if (aiPath.reachedDestination)
+                if (Vector2.Distance(transform.position, chute.position) < 1)
                 {
                     levelManager.chum++;
                     atChute = true;
@@ -68,7 +68,7 @@ public class Helper : MonoBehaviour
                 break;
             case HelperState.returnHome:
                 destinationSetter.target.position = startPosition.transform.position;
-                if (aiPath.reachedDestination)
+                if (Vector2.Distance(transform.position, startPosition.position) < 1)
                 {
                     atChute = false;
                     pathInProgress = false;
@@ -79,19 +79,19 @@ public class Helper : MonoBehaviour
     }
     void ChooseStatus()
     {
-        if (!pathInProgress && !bodyHeld && enemyDead &&  !atChute)
+        if (!aiPath.pathPending && !pathInProgress && !bodyHeld && enemyDead &&  !atChute)
         {
             ChangeStatus(HelperState.findBody);
         }
-        if (pathInProgress && bodyHeld && !enemyDead && !atChute)
+        if (!aiPath.pathPending && pathInProgress && bodyHeld && !enemyDead && !atChute)
         {
             ChangeStatus(HelperState.findChute);
         }
-        if (pathInProgress && !bodyHeld && !enemyDead && atChute)
+        if (!aiPath.pathPending && pathInProgress && !bodyHeld && !enemyDead && atChute)
         {
             ChangeStatus(HelperState.returnHome);
         }
-        if(!pathInProgress && !bodyHeld &&!enemyDead && atChute)
+        if (!pathInProgress && !bodyHeld &&!enemyDead && !atChute)
         {
             ChangeStatus(HelperState.idle);
         }

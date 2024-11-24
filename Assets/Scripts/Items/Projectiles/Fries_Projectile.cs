@@ -14,8 +14,6 @@ public class Fries_Projectile : MonoBehaviour
     public Rigidbody2D rb;
 
     public float distance;
-    public Vector3 endPoint;
-    public Vector3 dir;
 
     public LayerMask trigger;
     // Start is called before the first frame update
@@ -26,18 +24,9 @@ public class Fries_Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         this.GetComponent<Rigidbody2D>().gravityScale = 0f;
     }
-    private void OnEnable()
-    {
-        firePoint = GameObject.FindGameObjectWithTag("FirePoint").transform;
-        dir = firePoint.transform.position;
-    }
-
     // Update is called once per frame
     void Update()
     {
-/*        Vector3 target = new Vector3(dir.x, 0, 0);
-        rb.MovePosition(transform.position += target * Time.deltaTime * speed);*/
-
         travelTime -= Time.deltaTime;
         if (travelTime <= 0)
         {
@@ -49,6 +38,8 @@ public class Fries_Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("Sardine"))
         {
             Debug.Log("Customer Hit");
+            IDamageable damageable = other.transform.GetComponent<IDamageable>();
+            damageable?.Damage();
             Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("Geometry"))

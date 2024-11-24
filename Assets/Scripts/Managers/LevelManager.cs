@@ -14,10 +14,10 @@ public class LevelManager : MonoBehaviour
     public int amountToPool;
     public Transform spawnPosition;
 
-
     //score values
     public float levelTimer;
     public float spawnTimer;
+    public float levelTimeLimit;
     public float activeCustomers;
     public float score;
 

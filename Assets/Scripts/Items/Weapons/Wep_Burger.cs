@@ -10,6 +10,7 @@ public class Wep_Burger : Player_Weapon
     public Burger_Projectile projectile;
 
     public float timeSinceLastShot;
+    public float burgerForce = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,8 @@ public class Wep_Burger : Player_Weapon
         {
             Debug.Log("fire");
             Burger_Projectile burger = Instantiate(projectile, firePoint.position, Quaternion.identity);
-            burger.endPoint = playerInput.mousePos;
+            Rigidbody2D rb = burger.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.right * burgerForce, ForceMode2D.Impulse);
         }
     }
 }

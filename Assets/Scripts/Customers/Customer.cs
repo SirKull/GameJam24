@@ -9,7 +9,7 @@ public class Customer : MonoBehaviour, IDamageable
     public Helper helper;
     public AIPath aiPath;
 
-    public List<GameObject> tables_list = new List<GameObject>();
+    public List<GameObject> tables_list;
     public GameObject sharkBody;
     public GameObject sardineBody;
     public GameObject flounderBody;
@@ -23,6 +23,7 @@ public class Customer : MonoBehaviour, IDamageable
     public bool spawnsSet;
     private void Start()
     {
+        tables_list = new List<GameObject>();
         destinationSetter = GetComponent<AIDestinationSetter>();
         aiPath = GetComponent<AIPath>();
         helper = FindObjectOfType<Helper>();
@@ -73,7 +74,7 @@ public class Customer : MonoBehaviour, IDamageable
         {
             if(child.gameObject.tag == CustomerLocation)
             {
-                list.Add(child.gameObject);
+                tables_list.Add(child.gameObject);
             }
             SetDestinations(child, tag, list);
         }

@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationSetter: {fileID: 3897041628106195196}
+  helper: {fileID: 0}
   aiPath: {fileID: 4894982071402874295}
   tables_list: []
   sharkBody: {fileID: 469890541941321882, guid: 611cd5c952970e647ba3d0bda2cb7ca0, type: 3}
@@ -143,6 +144,7 @@ MonoBehaviour:
   seats: {fileID: 0}
   tableDestination: {fileID: 0}
   exit: {fileID: 0}
+  spawnsSet: 0
 --- !u!70 &4326060952017156514
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -175,8 +177,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0018444061, y: 0.0073755383}
-  m_Size: {x: 0.7249527, y: 1.3982772}
+  m_Offset: {x: -0.00038194656, y: -0.00028675795}
+  m_Size: {x: 0.86851025, y: 1.5095986}
   m_Direction: 0
 --- !u!1 &2436800961137738770
 GameObject:

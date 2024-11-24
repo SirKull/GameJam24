@@ -8,6 +8,7 @@ public class Wep_Burger : Player_Weapon
 
     public Transform firePoint;
     public Burger_Projectile projectile;
+    public bool isActive;
 
     public float timeSinceLastShot;
     public float burgerForce = 10f;
@@ -22,17 +23,30 @@ public class Wep_Burger : Player_Weapon
     {
         timeSinceLastShot += Time.deltaTime;
     }
-
-    private bool CanShoot() => timeSinceLastShot > 1f / (fireRate / 60f);
+    private void OnEnable()
+    {
+        isActive = true;
+    }
+    private void OnDisable()
+    {
+        isActive = false;
+    }
 
     private void Shoot()
     {
-        if (CanShoot())
+        if (playerInput.holdingWeapon && isActive)
         {
             Debug.Log("fire");
             Burger_Projectile burger = Instantiate(projectile, firePoint.position, Quaternion.identity);
             Rigidbody2D rb = burger.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.right * burgerForce, ForceMode2D.Impulse);
+            DisableWep();
         }
+    }
+    private void DisableWep()
+    {
+        playerInput.holdingWeapon = false;
+        playerInput.hasBurger = false;
+        playerInput.CurrentWeapon(0);
     }
 }

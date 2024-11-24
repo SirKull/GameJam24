@@ -8,6 +8,7 @@ public class Wep_Fries : Player_Weapon
 
     public Transform firePoint;
     public GameObject projectile;
+    public bool isActive;
 
     //shooting stats
     public float timeSinceLastShot;
@@ -25,12 +26,18 @@ public class Wep_Fries : Player_Weapon
     {
         timeSinceLastShot += Time.deltaTime;
     }
-
-    private bool CanShoot() => timeSinceLastShot > 1f / (fireRate / 60f);
+    private void OnEnable()
+    {
+        isActive = true;
+    }
+    private void OnDisable()
+    {
+        isActive = false;
+    }
 
     private void Shoot()
     {
-        if (CanShoot())
+        if (playerInput.holdingWeapon && isActive)
         {
             for (int i = 0; i < pellets; i++)
             {
@@ -45,6 +52,14 @@ public class Wep_Fries : Player_Weapon
                 Rigidbody2D rb = fries.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.right * fryForce, ForceMode2D.Impulse);
             }
+            DisableWep();
         }
+    }
+
+    private void DisableWep()
+    {
+        playerInput.holdingWeapon = false;
+        playerInput.hasFry = false;
+        playerInput.CurrentWeapon(0);
     }
 }

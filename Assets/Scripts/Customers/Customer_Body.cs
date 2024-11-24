@@ -19,6 +19,7 @@ public class Customer_Body : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Helper"))
         {
+            Debug.Log("BodyPickup");
             Destroy(gameObject);
         }   
     }

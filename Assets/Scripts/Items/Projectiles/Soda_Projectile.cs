@@ -23,7 +23,7 @@ public class Soda_Projectile : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Flounder"))
+        if (other.gameObject.CompareTag("Shark"))
         {
             Debug.Log("Customer Hit");
             IDamageable damageable = other.transform.GetComponent<IDamageable>();

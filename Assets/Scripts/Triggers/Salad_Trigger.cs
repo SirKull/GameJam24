@@ -15,7 +15,7 @@ public class Salad_Trigger : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Shark"))
+        if (other.gameObject.CompareTag("Flounder"))
         {
             Debug.Log("Customer Hit");
             IDamageable damageable = other.transform.GetComponent<IDamageable>();
